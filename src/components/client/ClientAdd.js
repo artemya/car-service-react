@@ -1,6 +1,5 @@
 import ClientService from '../../services/ClientService';
 import React, { useState } from 'react';
-import { Redirect } from 'react-router'
 
 function ClientAdd(props) {
     const clientState = {
@@ -22,7 +21,7 @@ function ClientAdd(props) {
             name: client.name,
             phoneNumber: client.phoneNumber
         };
-        
+
         await ClientService.create(data)      
         props.history.push('/api/clients')
     }

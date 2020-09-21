@@ -22,8 +22,8 @@ const Client = (props) => {
 
 
     useEffect(() => {
-    getClient(props.match.params.id);
-    }, [props.match.params.id]);
+        getClient(props.match.params.id);
+        }, [props.match.params.id]);
     
     return (
         <p>
