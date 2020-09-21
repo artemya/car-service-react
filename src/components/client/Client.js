@@ -18,18 +18,32 @@ const Client = (props) => {
           .catch(e => {
             console.log(e);
           });
-      }
+    }
+    // const deleteClient = () => {
+    //     ClientService.remove(currentClient.id)
+    //       .then(response => {
+    //         console.log(response.data);
+    //         props.history.push("/api/clients/");
+    //       })
+    //       .catch(e => {
+    //         console.log(e);
+    //       });
+    //   };
 
-      useEffect(() => {
-        // console.log('props', props)
-        getClient(props.match.params.id);
-      }, [props.match.params.id]);
+
+    useEffect(() => {
+    getClient(props.match.params.id);
+    }, [props.match.params.id]);
+    
     return (
         <p>
            {currentClient.name} {currentClient.phoneNumber} 
-           <a href="/api/clients" className="badge badge-warning">
+           <a href="/api/clients" className="badge badge-success">
                Back
             </a>
+            {/* <button className="badge badge-danger mr-2" onClick={deleteClient}> */}
+            Delete
+          {/* </button> */}
         </p>
     )
 }

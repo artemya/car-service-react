@@ -11,6 +11,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import ClientAdd from './components/client/ClientAdd';
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/api/clients" component={ClientList}/>
+          <Route exact path="/api/clients/post" component={ClientAdd}/>
           <Route path="/api/clients/:id" component={Client} />
         </Switch>
     </Router>
