@@ -1,9 +1,12 @@
 import React from 'react'
 
-export default function Client() {
+export default function Client(props) {
+    // const { clients } = props;
     return (
         <div>
-            client
+            {props.clients.map(c =>(
+                <p key={c.id}>{c.name}</p>
+            ))}
         </div>
     )
 }
