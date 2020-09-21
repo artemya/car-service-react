@@ -1,8 +1,8 @@
 import ClientService from '../../services/ClientService';
-import React, { useState, useEffect } from 'react';
-import { Redirect, useLocation } from 'react-router'
+import React, { useState } from 'react';
+import { Redirect } from 'react-router'
 
-function ClientAdd() {
+function ClientAdd(props) {
     const clientState = {
         id: null,
         name: '',
@@ -16,14 +16,15 @@ function ClientAdd() {
         setClient({ ...client, [name]: value });
       };
 
-    const saveClient = (event) => {
+    const saveClient = async(event) => {
         event.preventDefault();
         var data = {
             name: client.name,
             phoneNumber: client.phoneNumber
         };
-
-        ClientService.create(data)      
+        
+        await ClientService.create(data)      
+        props.history.push('/api/clients')
     }
     
 

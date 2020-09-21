@@ -1,7 +1,6 @@
 import ClientService from '../../services/ClientService'
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import ClientAdd from './ClientAdd';
 
 function ClientList() {
     const [ clients, setClient ] = useState([]);
@@ -23,7 +22,7 @@ function ClientList() {
     return (
       <div>
          <Link to={`/api/clients/post`} className="badge badge-success">
-            Show
+            Create
           </Link>
           {clients.map(c =>(
               <p key={c.id}>{c.name} {c.phoneNumber}

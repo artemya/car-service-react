@@ -19,16 +19,6 @@ const Client = (props) => {
             console.log(e);
           });
     }
-    // const deleteClient = () => {
-    //     ClientService.remove(currentClient.id)
-    //       .then(response => {
-    //         console.log(response.data);
-    //         props.history.push("/api/clients/");
-    //       })
-    //       .catch(e => {
-    //         console.log(e);
-    //       });
-    //   };
 
 
     useEffect(() => {
@@ -41,9 +31,6 @@ const Client = (props) => {
            <a href="/api/clients" className="badge badge-success">
                Back
             </a>
-            {/* <button className="badge badge-danger mr-2" onClick={deleteClient}> */}
-            Delete
-          {/* </button> */}
         </p>
     )
 }
