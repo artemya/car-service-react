@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import ClientService from '../../services/ClientService';
 
-export default function Client(props) {
-    // const { clients } = props;
+const Client = (props) => {
+    const client = {
+        id: null,
+        name: ''
+    }
+
+    const[currentClient, setCurrentClient] = useState(client);
+
     return (
         <div>
-            {props.clients.map(c =>(
-                <p key={c.id}>{c.name}</p>
-            ))}
+            <h2>{currentClient.name}</h2>
         </div>
     )
 }
+
+export default Client;
