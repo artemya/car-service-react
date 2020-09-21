@@ -1,19 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import ClientService from '../../services/ClientService';
+import ClientService from '../../services/ClientService'
 
 const Client = (props) => {
-    const client = {
-        id: null,
-        name: ''
+    const clientState = {
+        id:null,
+        name:'',
+        phoneNumber:''
     }
+    const [currentClient, setCurrentClient] = useState(clientState);
 
-    const[currentClient, setCurrentClient] = useState(client);
+    const getClient = (id) => {
+        ClientService.get(id)
+          .then(respone => {
+            setCurrentClient(respone.data);
+            console.log('client:',respone.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
 
+      useEffect(() => {
+        // console.log('props', props)
+        getClient(props.match.params.id);
+      }, [props.match.params.id]);
     return (
-        <div>
-            <h2>{currentClient.name}</h2>
-        </div>
+        <p>
+           {currentClient.name} {currentClient.phoneNumber} 
+           <a href="/api/clients" className="badge badge-warning">
+               Back
+            </a>
+        </p>
     )
 }
 
-export default Client;
+export default Client

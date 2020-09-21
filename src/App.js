@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import Header from './components/shared/Header';
 import ClientList from './components/client/ClientList'
-import Client from './components/client/Client';
+import Client from './components/client/Client'
+
 
 import {
   BrowserRouter as Router,
@@ -18,12 +19,8 @@ function App() {
     <Router>
         <Header />
         <Switch>
-          <Route path="/api/clients">
-            <ClientList />
-          </Route>
-          <Route path="/api/clients/:id">
-            <Client />
-          </Route>
+          <Route exact path="/api/clients" component={ClientList}/>
+          <Route path="/api/clients/:id" component={Client} />
         </Switch>
     </Router>
   );

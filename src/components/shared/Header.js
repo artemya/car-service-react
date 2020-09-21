@@ -13,6 +13,9 @@ export default function Header() {
             <li className="nav-item">
                 <a href="/api/materials" className="header-links">Materials</a>
             </li>
+            <li className="nav-item">
+                <a href="/api/clients" className="header-links">Clients</a>
+            </li>
         </ul>
     </nav>
     )
