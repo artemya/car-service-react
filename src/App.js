@@ -13,6 +13,7 @@ import ClientAdd from './components/client/ClientAdd';
 import ServiceAdd from './components/service/ServiceAdd'
 import MaterialAdd from './components/material/MaterialAdd';
 import CheckAdd from './components/check/CheckAdd';
+import AddInCheck from './components/check/AddInCheck';
 
 
 import {
@@ -32,8 +33,9 @@ function App() {
           <Route exact path="/api/clients/post" component={ClientAdd}/>
           <Route exact path="/api/clients/:id/checks/post" component={CheckAdd} />
           <Route exact path="/api/clients/:id/checks/:checkId" component={Check} />
+          <Route exact path="/api/clients/:id/checks/:checkId/post" component={AddInCheck} />
           <Route path="/api/clients/:id/checks" component={Client} />
-
+       
           <Route exact path="/api/services" component={ServiceList}/>
           <Route exact path="/api/services/post" component={ServiceAdd}/>
           <Route path="/api/services/:id" component={Service} />

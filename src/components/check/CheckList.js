@@ -26,6 +26,7 @@ const CheckList = (props) => {
                     <h5>Check №{c.id}</h5>
                     <label>Date creation {c.date}</label>
                     <Link to={`/api/clients/${props.idClient}/checks/${c.id}`}>Show</Link>
+                    <Link to={`/api/clients/${props.idClient}/checks/${c.id}/post`}>Edit</Link>
                 </div>
             ))}
         </div>
