@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ClientService from '../../services/ClientService'
 import CustomGet from '../../utils/CustomGET';
-import Check from '../check/Check';
+import CheckList from '../check/CheckList';
 
 const Client = (props) => {
     const clientState = {
@@ -20,7 +20,7 @@ const Client = (props) => {
            <a href="/api/clients" className="badge badge-success">
                Back
             </a>
-            <Check idClient={props.match.params.id} />
+            <CheckList idClient={props.match.params.id} />
         </div>
     )
 }
