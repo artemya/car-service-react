@@ -26,7 +26,7 @@ function ClientList() {
                     <td>{c.name}</td>
                     <td>{c.phoneNumber}</td>
                     <td>
-                      <Link to={`/api/clients/${c.id}`} className="badge badge-success" key={c.id}>
+                      <Link to={`/api/clients/${c.id}/checks`} customid={c.id} className="badge badge-success">
                         Show
                       </Link>
                     </td>

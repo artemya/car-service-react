@@ -28,7 +28,7 @@ function App() {
         <Switch>
           <Route exact path="/api/clients" component={ClientList}/>
           <Route exact path="/api/clients/post" component={ClientAdd}/>
-          <Route path="/api/clients/:id" component={Client} />
+          <Route path="/api/clients/:id/checks" component={Client} />
 
           <Route exact path="/api/services" component={ServiceList}/>
           <Route exact path="/api/services/post" component={ServiceAdd}/>
