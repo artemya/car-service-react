@@ -10,7 +10,7 @@ export default function MaterialList() {
 
     return (
       <div>
-         <Link to={`/api/services/post`} className="badge badge-success">
+         <Link to={`/api/materials/post`} className="badge badge-success">
             Create
           </Link>
           <table>
@@ -26,7 +26,7 @@ export default function MaterialList() {
                   <td>{c.name}</td> 
                   <td>{c.price}</td> 
                   <td>
-                    <Link to={`/api/services/${c.id}`} className="badge badge-success" key={c.id}>
+                    <Link to={`/api/materials/${c.id}`} className="badge badge-success" key={c.id}>
                       Show
                     </Link>
                   </td>
