@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import CategoryService from '../../services/CategoryService';
 import ServicesService from '../../services/ServicesService';
+import CustomGet from '../../utils/CustomGET';
 
 function ServiceAdd(props) {
     const serviceState = {
@@ -8,6 +10,10 @@ function ServiceAdd(props) {
         price: null,
         categoryId: null
     }
+    const [ categories, setCategory ] = useState([]);
+
+
+    CustomGet(CategoryService, setCategory)
 
     const [service, setService] = useState(serviceState);
 
@@ -20,8 +26,8 @@ function ServiceAdd(props) {
         event.preventDefault();
         var data = {
             name: service.name,
-            price: service.price,
-            categoryId: service.categoryId
+            price: parseFloat(service.price),
+            categoryId: parseInt(service.categoryId)
         };
 
         await ServicesService.create(data)      
@@ -39,20 +45,19 @@ function ServiceAdd(props) {
                 onChange={handleInputChange}
                 name="name"/>
             <p>Price:</p>
-            <input type="text"
+            <input 
                 className="form-control" 
                 id="price"
                 required 
                 onChange={handleInputChange}
-                name="price"/>
+                name="price"
+                type="number"/>
             <p>Category:</p>
-            <input type="text"
-                className="form-control" 
-                id="categoryId"
-                required 
-                onChange={handleInputChange}
-                name="categoryId"/>
-
+            <select name="categoryId" id="categoryId" onChange={handleInputChange}>
+                {categories.map(c => (
+                   <option key={c.id} value={c.id} type="number">{c.name}</option>
+                ))}
+            </select>
             <button className="btn btn-success">
                 Submit
             </button>
