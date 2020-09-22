@@ -1,36 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import ServicesService from '../../services/ServicesService';
+import CustomGet from '../../utils/CustomGET';
 
 function ServiceList() {
     const [ services, setService ] = useState([]);
 
-    useEffect(() => {
-      getAll();
-    }, [])
-  
-    const getAll = () => {
-      ServicesService.getAll()
-        .then(respone => {
-          setService(respone.data);
-          console.log('clients',respone.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    }
+    CustomGet(ServicesService, setService);
+
     return (
       <div>
          <Link to={`/api/services/post`} className="badge badge-success">
             Create
           </Link>
-          {services.map(c =>(
-              <p key={c.id}>{c.name} {c.phoneNumber}
-                <Link to={`/api/services/${c.id}`} className="badge badge-success" key={c.id}>
-                  Show
-                </Link>
-              </p>
-          ))}
+          <table>
+            <thead>
+              <tr>
+                  <td>Service name</td> 
+                  <td>Price</td> 
+                  <td>Category</td>
+              </tr>
+            </thead>
+            <tbody>
+              {services.map(c =>(
+                <tr key={c.id}>
+                  <td>{c.name}</td> 
+                  <td>{c.price}</td> 
+                  <td>{c.categoryId}</td>
+                  <td>
+                    <Link to={`/api/services/${c.id}`} className="badge badge-success" key={c.id}>
+                      Show
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
       </div>
     )
 }

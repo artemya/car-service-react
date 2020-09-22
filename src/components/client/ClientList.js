@@ -1,36 +1,39 @@
 import ClientService from '../../services/ClientService'
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import CustomGet from '../../utils/CustomGET';
 
 function ClientList() {
     const [ clients, setClient ] = useState([]);
 
-    useEffect(() => {
-      getAll();
-    }, [])
-  
-    const getAll = () => {
-      ClientService.getAll()
-        .then(respone => {
-          setClient(respone.data);
-          console.log('clients',respone.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    }
+    CustomGet(ClientService, setClient)
+
     return (
       <div>
          <Link to={`/api/clients/post`} className="badge badge-success">
             Create
           </Link>
-          {clients.map(c =>(
-              <p key={c.id}>{c.name} {c.phoneNumber}
-                <Link to={`/api/clients/${c.id}`} className="badge badge-success" key={c.id}>
-                  Show
-                </Link>
-              </p>
-          ))}
+          <table>
+            <thead>
+              <tr>
+                  <td>Client name</td> 
+                  <td>Phone</td> 
+              </tr>
+            </thead>
+            <tbody>
+              {clients.map(c =>(
+                  <tr key={c.id}>
+                    <td>{c.name}</td>
+                    <td>{c.phoneNumber}</td>
+                    <td>
+                      <Link to={`/api/clients/${c.id}`} className="badge badge-success" key={c.id}>
+                        Show
+                      </Link>
+                    </td>
+                  </tr>
+              ))}
+            </tbody>
+          </table>
       </div>
     )
 }
