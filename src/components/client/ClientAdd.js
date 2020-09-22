@@ -34,14 +34,16 @@ function ClientAdd(props) {
             id="name"
             required 
             onChange={handleInputChange}
-            name="name"/>
+            name="name"
+            placeholder="Client name"/>
 
             <input type="text"
             className="form-control" 
             id="phoneNumber"
             required 
             onChange={handleInputChange}
-            name="phoneNumber"/>
+            name="phoneNumber"
+            placeholder="Phone Number"/>
 
             <button className="btn btn-success">
                 Submit
