@@ -18,6 +18,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import CheckAdd from './components/check/CheckAdd';
 
 
 
@@ -28,6 +29,7 @@ function App() {
         <Switch>
           <Route exact path="/api/clients" component={ClientList}/>
           <Route exact path="/api/clients/post" component={ClientAdd}/>
+          <Route exact path="/api/clients/:id/checks/post" component={CheckAdd} />
           <Route path="/api/clients/:id/checks" component={Client} />
 
           <Route exact path="/api/services" component={ServiceList}/>

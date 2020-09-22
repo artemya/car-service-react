@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import CheckService from '../../services/CheckService';
+import CheckAdd from './CheckAdd';
 
 const Check = (props) => {
     const [checks, setCheck] = useState([]);
@@ -12,18 +13,18 @@ const Check = (props) => {
     }
 
     useEffect(() => {
-        console.log('передача', props.idClient)
+        console.log('idClient', props.idClient)
         getAll(parseInt(props.idClient));
     }, [])
 
     return (
         <div>
+            <CheckAdd idClient={props.idClient} />
             {checks.map(c => (
-                
-                <p key={c.id}>
+                <div key={c.id}>
                     <h5>Check №{c.id}</h5>
                     <label>Date creation {c.date}</label>
-                </p>
+                </div>
             ))}
         </div>
     )
