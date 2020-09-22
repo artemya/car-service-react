@@ -1,20 +1,28 @@
 import { useEffect } from 'react';
 
-function CustomGet(service, setSomething) {
+function CustomGet(service, setSomething, id) {
 
-    const getAll = () => {
-        service.getAll()
-        .then(respone => {
-            setSomething(respone.data);
-            console.log(respone.data);
-        })
-        .catch(e => {
-            console.log(e);
-        });
+    const get = (id) => {
+        console.log(id);
+        if(id) {
+            service.get(id)
+            .then(thenQuery(setSomething)) 
+        } else { 
+            service.getAll() 
+            .then(thenQuery(setSomething))
+        }
+        
     }
 
     useEffect(() => {
-        getAll();
-    }, [])
+        get(id);
+    }, [id])
+}
+
+function thenQuery(setSomething) {
+    return (async respone => {
+        await setSomething(respone.data);
+        console.log(respone.data);
+    })
 }
 export default CustomGet

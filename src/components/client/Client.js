@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ClientService from '../../services/ClientService'
+import CustomGet from '../../utils/CustomGET';
 
 const Client = (props) => {
     const clientState = {
@@ -9,22 +10,8 @@ const Client = (props) => {
     }
     const [currentClient, setCurrentClient] = useState(clientState);
 
-    const getClient = (id) => {
-        ClientService.get(id)
-          .then(respone => {
-            setCurrentClient(respone.data);
-            console.log('client:',respone.data);
-          })
-          .catch(e => {
-            console.log(e);
-          });
-    }
+    CustomGet(ClientService, setCurrentClient, props.match.params.id)
 
-
-    useEffect(() => {
-        getClient(props.match.params.id);
-        }, [props.match.params.id]);
-    
     return (
         <p>
            {currentClient.name} {currentClient.phoneNumber} 

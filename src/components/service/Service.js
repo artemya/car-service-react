@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ServicesService from '../../services/ServicesService';
+import CustomGet from '../../utils/CustomGET';
 
 const Service = (props) => {
     const serviceState = {
@@ -10,26 +11,12 @@ const Service = (props) => {
     }
     const [currentService, setCurrentService] = useState(serviceState);
 
-    const getClient = (id) => {
-        ServicesService.get(id)
-          .then(respone => {
-            setCurrentService(respone.data);
-            console.log('service:',respone.data);
-          })
-          .catch(e => {
-            console.log(e);
-          });
-    }
+    CustomGet(ServicesService, setCurrentService, props.match.params.id)
 
-
-    useEffect(() => {
-        getClient(props.match.params.id);
-        }, [props.match.params.id]);
-    
     return (
         <p>
            {currentService.name} {currentService.price} {currentService.categoryId} 
-           <a href="/api/clients" className="badge badge-success">
+           <a href="/api/services" className="badge badge-success">
                Back
             </a>
         </p>
