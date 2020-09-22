@@ -8,9 +8,11 @@ import MaterialList from './components/material/MaterialList'
 import Client from './components/client/Client'
 import Service from './components/service/Service'
 import Material from './components/material/Material';
+import Check from './components/check/Check';
 import ClientAdd from './components/client/ClientAdd';
 import ServiceAdd from './components/service/ServiceAdd'
 import MaterialAdd from './components/material/MaterialAdd';
+import CheckAdd from './components/check/CheckAdd';
 
 
 import {
@@ -18,7 +20,6 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import CheckAdd from './components/check/CheckAdd';
 
 
 
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/api/clients" component={ClientList}/>
           <Route exact path="/api/clients/post" component={ClientAdd}/>
           <Route exact path="/api/clients/:id/checks/post" component={CheckAdd} />
+          <Route exact path="/api/clients/:id/checks/:checkId" component={Check} />
           <Route path="/api/clients/:id/checks" component={Client} />
 
           <Route exact path="/api/services" component={ServiceList}/>

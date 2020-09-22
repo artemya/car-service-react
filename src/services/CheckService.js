@@ -8,7 +8,13 @@ const get = id => {
 const create = data => {
     return API.post("/api/checks/", data);
 };
+
+const show = id => {
+    return API.get(`/api/checks/${id}`);
+};
+
 export default {
     get,
-    create
+    create,
+    show
 }
