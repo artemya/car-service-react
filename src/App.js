@@ -6,8 +6,6 @@ import ServiceList from './components/service/ServiceList'
 import ClientList from './components/client/ClientList'
 import MaterialList from './components/material/MaterialList'
 import Client from './components/client/Client'
-import Service from './components/service/Service'
-import Material from './components/material/Material';
 import Check from './components/check/Check';
 import ClientAdd from './components/client/ClientAdd';
 import ServiceAdd from './components/service/ServiceAdd'
@@ -38,11 +36,9 @@ function App() {
        
           <Route exact path="/api/services" component={ServiceList}/>
           <Route exact path="/api/services/post" component={ServiceAdd}/>
-          <Route path="/api/services/:id" component={Service} />
 
           <Route exact path="/api/materials" component={MaterialList}/>
           <Route exact path="/api/materials/post" component={MaterialAdd}/>
-          <Route exact path="/api/materials/:id" component={Material}/>
         </Switch>
     </Router>
   );

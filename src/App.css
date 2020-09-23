@@ -1,0 +1,17 @@
+.buttonCreate {
+    width: 50%;
+}
+
+td {
+    border-bottom: 1px solid;
+    color: rgb(129, 129, 129);
+}
+.customContainer {
+    padding-top: 20px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1300px;
+    background-color: rgba(72, 87, 72, 0.178);
+}

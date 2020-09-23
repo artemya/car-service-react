@@ -10,15 +10,16 @@ function ClientList() {
     CustomGet(ClientService, setClient)
 
     return (
-      <div className='containerClient container'>
-         <Link to={`/api/clients/post`} className="badge badge-success">
+      <div className='customContainer container'>
+         <Link to={`/api/clients/post`} className="btn btn-success buttonCreate">
             Create
           </Link>
-          <table>
+          <table class="table tableClient">
             <thead>
               <tr>
-                  <td>Client name</td> 
-                  <td>Phone</td> 
+                  <th>Client name</th> 
+                  <th>Phone</th> 
+                  <th></th> 
               </tr>
             </thead>
             <tbody>

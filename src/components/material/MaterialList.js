@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import MaterialService from '../../services/MaterialService';
 import CustomGet from '../../utils/CustomGET';
+import './Material.css'
 
 export default function MaterialList() {
     const [ materials, setMaterial ] = useState([]);
@@ -9,27 +10,23 @@ export default function MaterialList() {
     CustomGet(MaterialService, setMaterial);
 
     return (
-      <div>
-         <Link to={`/api/materials/post`} className="badge badge-success">
+      <div className='customContainer container'>
+         <Link to={`/api/materials/post`} className="btn btn-success buttonCreate">
             Create
           </Link>
-          <table>
+          <table class="table tableMaterial">
             <thead>
               <tr>
-                  <td>Material name</td> 
-                  <td>Price</td> 
+                  <th>Material name</th> 
+                  <th>Price</th> 
+  
               </tr>
             </thead>
             <tbody>
               {materials.map(c =>(
                 <tr key={c.id}>
                   <td>{c.name}</td> 
-                  <td>{c.price}</td> 
-                  <td>
-                    <Link to={`/api/materials/${c.id}`} className="badge badge-success" key={c.id}>
-                      Show
-                    </Link>
-                  </td>
+                  <td>{c.price} UAH</td> 
                 </tr>
               ))}
             </tbody>

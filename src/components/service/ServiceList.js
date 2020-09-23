@@ -1,37 +1,40 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import CategoryService from '../../services/CategoryService';
 import ServicesService from '../../services/ServicesService';
 import CustomGet from '../../utils/CustomGET';
+import './Service.css'
 
 function ServiceList() {
     const [ services, setService ] = useState([]);
+    const [ categories, setCategory ] = useState([]);
 
     CustomGet(ServicesService, setService);
+    CustomGet(CategoryService, setCategory);
 
     return (
-      <div>
-         <Link to={`/api/services/post`} className="badge badge-success">
+      <div className='customContainer container'>
+         <Link to={`/api/services/post`} className="btn btn-success buttonCreate">
             Create
           </Link>
-          <table>
+          <table class='table tableService'>
             <thead>
               <tr>
-                  <td>Service name</td> 
-                  <td>Price</td> 
-                  <td>Category</td>
+                  <th>Service name</th> 
+                  <th>Price</th> 
+                  <th>Category</th>
               </tr>
             </thead>
             <tbody>
-              {services.map(c =>(
-                <tr key={c.id}>
-                  <td>{c.name}</td> 
-                  <td>{c.price}</td> 
-                  <td>{c.categoryId}</td>
-                  <td>
-                    <Link to={`/api/services/${c.id}`} className="badge badge-success" key={c.id}>
-                      Show
-                    </Link>
-                  </td>
+              {services.map(s =>(
+                <tr key={s.id}>
+                  <td>{s.name}</td> 
+                  <td>{s.price}</td> 
+                  {categories.map(c => (
+                    s.categoryId == c.id
+                    ?<td>{c.name}</td> : null
+                  ))
+                  }
                 </tr>
               ))}
             </tbody>
