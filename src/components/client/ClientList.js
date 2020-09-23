@@ -2,6 +2,7 @@ import ClientService from '../../services/ClientService'
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import CustomGet from '../../utils/CustomGET';
+import './Client.css'
 
 function ClientList() {
     const [ clients, setClient ] = useState([]);
@@ -9,7 +10,7 @@ function ClientList() {
     CustomGet(ClientService, setClient)
 
     return (
-      <div>
+      <div className='containerClient container'>
          <Link to={`/api/clients/post`} className="badge badge-success">
             Create
           </Link>

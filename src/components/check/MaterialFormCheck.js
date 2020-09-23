@@ -1,26 +1,27 @@
-import React, { useState } from 'react'
+
+import React from 'react'
 import MaterialItemService from '../../services/MaterialItemService';
-import MaterialService from '../../services/MaterialService';
 
 const MaterialFormCheck = (props) => {
-    const saveToCheck = async(event) => {
+    const saveToCheck = async() => {
         var data = {
             checkId: parseInt(props.checkId),
             ExpendableMaterialId: props.material.id
         };
         console.log(data)
         await MaterialItemService.create(data);
+        alert(`Material ${props.material.name} added to check №${props.checkId}`);
     }
     
     return (
         <div>
-            <input 
+            <i
                 onClick={saveToCheck}
                 key={props.material.id} 
-                type="checkbox"
                 id={props.material.id}
-            ></input>
-            // {props.material.name}
+                class="fas fa-plus icon-style">
+            </i>
+            <label className="label-name">{props.material.name}</label>
 
         </div>
     )
