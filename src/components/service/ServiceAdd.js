@@ -36,24 +36,25 @@ function ServiceAdd(props) {
     
 
     return (
-        <form onSubmit={saveService}>
-            <p>Service name:</p>
+        <form onSubmit={saveService} className='container'>
+            <p><h4>Add new service:</h4></p>
             <input type="text"
-                className="form-control" 
+                className="form-control inputAll" 
                 id="name"
                 required 
                 onChange={handleInputChange}
-                name="name"/>
-            <p>Price:</p>
+                name="name"
+                placeholder="Service name"/>
             <input 
-                className="form-control" 
+                className="form-control inputAll" 
                 id="price"
                 required 
                 onChange={handleInputChange}
                 name="price"
-                type="number"/>
-            <p>Category:</p>
-            <select name="categoryId" id="categoryId" onChange={handleInputChange}>
+                type="number"
+                placeholder="Price"/>
+            <select name="categoryId" id="categoryId" className="custom-select inputAll" onChange={handleInputChange}>
+                <option selected disabled hidden>Choose category</option>
                 {categories.map(c => (
                    <option key={c.id} value={c.id} type="number">{c.name}</option>
                 ))}

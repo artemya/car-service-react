@@ -23,3 +23,20 @@
     padding: 20px;
 }
 
+.checkDiv {
+    margin-top: 1px;
+    margin-bottom: 3px;
+    border: 1px solid;
+    border-radius: 5px;
+    padding:5px
+}
+
+.paddingButton {
+    margin-left: 3px;
+}
+
+
+.checkContainerDiv {
+    display: flex;
+    justify-content: center;
+}

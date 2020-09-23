@@ -19,7 +19,7 @@ const MaterialFormCheck = (props) => {
                 onClick={saveToCheck}
                 key={props.material.id} 
                 id={props.material.id}
-                class="fas fa-plus icon-style">
+                className="fas fa-plus icon-style">
             </i>
             <label className="label-name">{props.material.name}</label>
 

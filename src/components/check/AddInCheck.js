@@ -18,13 +18,13 @@ const AddInCheck = (props) => {
             <div className='child'>
                 <h4>Available materials: </h4>
                 {materials.map(c => (
-                    <MaterialFormCheck checkId={props.match.params.checkId} material={c} />
+                    <MaterialFormCheck key={c.id} checkId={props.match.params.checkId} material={c} />
                 ))}
             </div>
             <div className='child'>
             <h4>Available works: </h4>
                 {services.map(s => (
-                    <ServiceFormCheck checkId={props.match.params.checkId} service={s} />
+                    <ServiceFormCheck key={s.id} checkId={props.match.params.checkId} service={s} />
                 ))}
             </div>
         </div>

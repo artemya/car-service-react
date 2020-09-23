@@ -29,22 +29,23 @@ function MaterialAdd(props) {
     
 
     return (
-        <form onSubmit={saveMaterial}>
-            <p>Material name:</p>
+        <form onSubmit={saveMaterial} className='container'>
+            <p><h4>Add new material</h4></p>
             <input type="text"
-                className="form-control" 
+                className="form-control inputAll" 
                 id="name"
                 required 
                 onChange={handleInputChange}
-                name="name"/>
-            <p>Price:</p>
+                name="name"
+                placeholder="Material name"/>
             <input 
-                className="form-control" 
+                className="form-control inputAll" 
                 id="price"
                 required 
                 onChange={handleInputChange}
                 name="price"
-                type="number"/>
+                type="number"
+                placeholder="Price"/>
             <button className="btn btn-success">
                 Submit
             </button>

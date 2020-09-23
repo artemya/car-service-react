@@ -15,12 +15,14 @@ const Client = (props) => {
     CustomGet(ClientService, setCurrentClient, props.match.params.id)
 
     return (
-        <div>
-           {currentClient.name} {currentClient.phoneNumber} 
+        <div className="container customContainer">
+            <h5>Client name: {currentClient.name}</h5>
+            <p>Client phone: {currentClient.phoneNumber}</p>
+            
+           <CheckList idClient={props.match.params.id} />
            <a href="/api/clients" className="badge badge-success">
-               Back
+               Back to client list
             </a>
-            <CheckList idClient={props.match.params.id} />
         </div>
     )
 }

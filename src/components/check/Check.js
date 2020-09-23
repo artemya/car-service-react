@@ -17,7 +17,7 @@ export default function Check(props) {
         getCheck(parseInt(props.match.params.checkId));
     }, [])
     return (
-        <div>
+        <div className="container checkContainerDiv">
             {(currentCheck.length)
 
             ? (<div>{currentCheck.map((c, index) => (

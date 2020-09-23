@@ -1,6 +1,9 @@
 .buttonCreate {
     width: 50%;
 }
+.buttonCreate2 {
+    width: 100%;
+}
 
 td {
     border-bottom: 1px solid;
@@ -14,4 +17,7 @@ td {
     justify-content: center;
     max-width: 1300px;
     background-color: rgba(72, 87, 72, 0.178);
+}
+.inputAll {
+    margin-bottom: 5px;
 }

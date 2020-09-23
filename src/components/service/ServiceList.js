@@ -14,10 +14,10 @@ function ServiceList() {
 
     return (
       <div className='customContainer container'>
-         <Link to={`/api/services/post`} className="btn btn-success buttonCreate">
-            Create
+          <Link to={`/api/services/post`} className="btn btn-success buttonCreate">
+            Add new service
           </Link>
-          <table class='table tableService'>
+          <table className='table tableService'>
             <thead>
               <tr>
                   <th>Service name</th> 
@@ -32,7 +32,7 @@ function ServiceList() {
                   <td>{s.price}</td> 
                   {categories.map(c => (
                     s.categoryId == c.id
-                    ?<td>{c.name}</td> : null
+                    ?<td key={s.categoryId}>{c.name}</td> : null
                   ))
                   }
                 </tr>

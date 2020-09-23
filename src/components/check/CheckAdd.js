@@ -19,7 +19,7 @@ function CheckAdd(props) {
 
     return (
         <form onSubmit={saveCheck}>
-            <button className="btn btn-success">
+            <button className="btn btn-success buttonCreate2" >
                 Create new check
             </button>
         </form>

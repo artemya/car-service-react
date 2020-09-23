@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import CheckService from '../../services/CheckService';
 import CheckAdd from './CheckAdd';
+import './Check.css'
 
 const CheckList = (props) => {
     const [checks, setCheck] = useState([]);
@@ -22,11 +23,11 @@ const CheckList = (props) => {
         <div>
             <CheckAdd idClient={props.idClient} />
             {checks.map(c => (
-                <div key={c.id}>
+                <div key={c.id} className="checkDiv">
                     <h5>Check №{c.id}</h5>
-                    <label>Date creation {c.date}</label>
-                    <Link to={`/api/clients/${props.idClient}/checks/${c.id}`}>Show</Link>
-                    <Link to={`/api/clients/${props.idClient}/checks/${c.id}/post`}>Edit</Link>
+                    <label>Creating date - {c.date}</label>
+                    <Link to={`/api/clients/${props.idClient}/checks/${c.id}`} className="badge badge-success paddingButton">Show</Link>
+                    <Link to={`/api/clients/${props.idClient}/checks/${c.id}/post`} className="badge badge-warning paddingButton">Edit</Link>
                 </div>
             ))}
         </div>

@@ -12,14 +12,13 @@ export default function MaterialList() {
     return (
       <div className='customContainer container'>
          <Link to={`/api/materials/post`} className="btn btn-success buttonCreate">
-            Create
+            Add new material
           </Link>
-          <table class="table tableMaterial">
+          <table className="table tableMaterial">
             <thead>
               <tr>
                   <th>Material name</th> 
                   <th>Price</th> 
-  
               </tr>
             </thead>
             <tbody>

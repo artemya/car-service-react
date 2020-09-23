@@ -12,9 +12,9 @@ function ClientList() {
     return (
       <div className='customContainer container'>
          <Link to={`/api/clients/post`} className="btn btn-success buttonCreate">
-            Create
+            Add new client
           </Link>
-          <table class="table tableClient">
+          <table className="table tableClient">
             <thead>
               <tr>
                   <th>Client name</th> 
