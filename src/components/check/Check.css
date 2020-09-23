@@ -1,0 +1,25 @@
+.icon-style {
+    color:green;
+    font-size: 25px;
+}
+.icon-style:hover {
+    color:rgb(31, 59, 30);
+}
+.label-name {
+    font-size: 20px;
+    padding-left: 10px;
+    padding-bottom: 7px;
+    margin-top: -3px;
+}
+.containerCheck {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgba(72, 87, 72, 0.178);
+    border-radius: 20px;
+}
+
+.child {
+    padding: 20px;
+}
+
